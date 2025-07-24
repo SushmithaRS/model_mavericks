@@ -1,10 +1,17 @@
 from fastapi import FastAPI, UploadFile, File, Request
 from fastapi.responses import FileResponse
+from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 import os
 
 app = FastAPI()
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Ensure cleaned_files directory exists
 CLEANED_DIR = "cleaned_files"
 os.makedirs(CLEANED_DIR, exist_ok=True)
