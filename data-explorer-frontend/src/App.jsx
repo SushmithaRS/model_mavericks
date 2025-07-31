@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
 import Upload from './pages/Upload';
-import Insights from './pages/Insights';
-import Visualizations from './pages/Visualizations';
-import Explore from './pages/Explore';
+
 
 const App = () => {
   return (
@@ -16,9 +14,6 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/upload" element={<Upload />} />
-            <Route path="/explore" element={<Explore />} />
-            <Route path="/insights" element={<Insights />} />
-            <Route path="/visualizations" element={<Visualizations />} />
           </Routes>
         </div>
       </div>

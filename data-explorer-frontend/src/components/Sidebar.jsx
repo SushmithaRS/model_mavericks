@@ -21,9 +21,6 @@ const Sidebar = () => {
   const navItems = [
     { text: 'Dashboard', path: '/', icon: <DashboardIcon /> },
     { text: 'Upload Data', path: '/upload', icon: <CloudUploadIcon /> },
-    { text: 'Explore Data', path: '/explore', icon: <SearchIcon /> },
-    { text: 'Insights', path: '/insights', icon: <InsightsIcon /> },
-    { text: 'Visualizations', path: '/visualizations', icon: <BarChartIcon /> },
   ];
 
   return (
