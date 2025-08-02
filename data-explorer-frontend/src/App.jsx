@@ -1,23 +1,56 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// App.js
+import React, { useState } from 'react';
+import { Box } from '@mui/material';
 import Sidebar from './components/Sidebar';
-import Dashboard from './pages/Dashboard';
 import Upload from './pages/Upload';
-
+import Chatbot from './pages/Chatbot';
 
 const App = () => {
+  const [sessionId, setSessionId] = useState(() => {
+    return localStorage.getItem("session_id");
+  });
+
   return (
-    <Router>
-      <div style={{ display: 'flex' }}>
+    <Box display="flex" width="100vw" height="100vh" overflow="hidden">
+      {/* Left Sidebar */}
+      <Box
+        width="260px"
+        height="100%"
+        sx={{ flexShrink: 0, bgcolor: '#1a237e' }}
+      >
         <Sidebar />
-        <div style={{ flexGrow: 1, padding: '2rem' }}>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/upload" element={<Upload />} />
-          </Routes>
-        </div>
-      </div>
-    </Router>
+      </Box>
+
+      {/* Center Content */}
+      <Box
+        flexGrow={1}
+        height="100%"
+        overflow="auto"
+        p={2}
+        sx={{
+          background: '#f5f5f5',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <Upload setSessionId={setSessionId} />
+      </Box>
+
+      {/* Right Chatbot */}
+      <Box
+        width="320px"
+        height="100%"
+        p={2}
+        sx={{
+          flexShrink: 0,
+          background: '#e0f7fa',
+          borderLeft: '1px solid #ccc',
+          overflowY: 'auto',
+        }}
+      >
+        <Chatbot sessionId={sessionId} />
+      </Box>
+    </Box>
   );
 };
 
