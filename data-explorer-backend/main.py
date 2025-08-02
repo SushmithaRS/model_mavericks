@@ -24,7 +24,7 @@ app.add_middleware(
 )
 
 # ----- Constants -----
-GEMINI_API_KEY = "AIzaSyCgNV9ckHZorFlvvaB4TqQJGeYzLEXBUtg"
+GEMINI_API_KEY = ""
 if not GEMINI_API_KEY:
     raise RuntimeError("GEMINI_API_KEY is not set.")
 GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
